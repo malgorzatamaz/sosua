@@ -5,6 +5,7 @@ import {
   CompositionGrid,
   CompositionRow,
 } from "../Compositions";
+import { lenguageTextSwitcher } from "../../helpers";
 import {
   Input,
   ChoiceButton,
@@ -13,7 +14,6 @@ import {
   RadioButtons,
 } from "../Forms";
 import { ScrollView, StyleSheet } from "react-native";
-const getTranslation = (key) => getLanguage("guestList", key);
 
 const AddAccommodationForm = ({}: AddAccommodationFormProps) => {
   return (
@@ -24,18 +24,33 @@ const AddAccommodationForm = ({}: AddAccommodationFormProps) => {
     >
       <CompositionSection padding={[35, 30, 8, 30]}>
         <InputControl>
-          <Input placeholder={getTranslation("name")} />
+          <Input placeholder="imię" />
         </InputControl>
         <InputControl>
-          <Input placeholder={getTranslation("eMail")} />
+          <Input placeholder="e-mail" />
         </InputControl>
         <InputControl>
-          <Input placeholder={getTranslation("location")} />
+          <Input placeholder="miejscowość" />
         </InputControl>
       </CompositionSection>
       <CompositionSection backgroundColor="#F5F4F4" padding={[35, 30, 10, 30]}>
         <InputControl>
-          <InputCotrolLabel>{getTranslation("preferences")}</InputCotrolLabel>
+          <InputCotrolLabel>
+            {lenguageTextSwitcher([
+              {
+                locale: "ua-UA",
+                text: "(UA) Określ swoje preferencje, kogo chcesz przyjąć:я",
+              },
+              {
+                locale: "pl-PL",
+                text: "Określ swoje preferencje - komu możesz pomóc:",
+              },
+              {
+                locale: "ru-RU",
+                text: "(RU) Określ swoje preferencje, kogo chcesz przyjąć:",
+              },
+            ])}
+          </InputCotrolLabel>
           <CompositionGrid spaceing={[16, 16]} itemsPerRow={2} disableRwd>
             {hostPreferences.map((hostPreference: HostPreferenceData) => {
               return (
@@ -49,7 +64,7 @@ const AddAccommodationForm = ({}: AddAccommodationFormProps) => {
         </InputControl>
         <InputControl>
           <InputCotrolLabel>
-            {getTranslation("howManyPersons")}
+            {lenguageTextSwitcher("Ile osób możesz przyjąć?")}
           </InputCotrolLabel>
           <RadioButtons
             radios={[
@@ -58,7 +73,7 @@ const AddAccommodationForm = ({}: AddAccommodationFormProps) => {
               { text: "3", id: "3" },
               { text: "4", id: "4" },
               { text: "5", id: "5" },
-              { text: getTranslation("more"), id: "6", more: "number" },
+              { text: "więcej", id: "6", more: "number" },
             ]}
           />
         </InputControl>
@@ -84,7 +99,6 @@ const styles = StyleSheet.create({
  * TODO: destiny API
  */
 import type { LenguageText } from "../../helpers/lenguageTextSwitcher";
-import { getLanguage } from "../../lang/getLanguages";
 export type HostPreferenceData = {
   id: string;
   text: LenguageText;
@@ -96,7 +110,11 @@ export type HostPreferencesData = Array<HostPreferenceData>;
 const hostPreferences: HostPreferencesData = [
   {
     id: "hostPreference_1",
-    text: getTranslation("animalsWelcome"),
+    text: [
+      { locale: "ua-UA", text: "домашні тварини вітаються" },
+      { locale: "pl-PL", text: "zwierzęta mile widziane" },
+      { locale: "ru-RU", text: "домашние животные приветствуются" },
+    ],
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +136,7 @@ const hostPreferences: HostPreferencesData = [
   },
   {
     id: "hostPreference_2",
-    text: getTranslation("toddlerBelow2yo"),
+    text: "dzieci poniźej 2 lat",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -140,7 +158,7 @@ const hostPreferences: HostPreferencesData = [
   },
   {
     id: "hostPreference_3",
-    text: getTranslation("food"),
+    text: "zapewnie wyżywienie",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -162,7 +180,7 @@ const hostPreferences: HostPreferencesData = [
   },
   {
     id: "hostPreference_4",
-    text: getTranslation("disabledReady"),
+    text: "osoby z niepełnosprawnością",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
