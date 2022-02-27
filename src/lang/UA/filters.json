@@ -1,15 +1,15 @@
 {
-  "location": "Lokalizacja",
-  "numberOfGuests": "Liczba gości",
-  "timeframe": "Długosć pobytu",
-  "oneWeek": "tydzień",
-  "twoWeeks": "Dwa tygodnie",
-  "month": "Miesiąc",
-  "longerThanMonth": "Więcej",
-  "food": "Wyżywienie",
-  "disabledPerson": "Osoby z niepełnosprawnością",
-  "kidsBelow2yo": "Jestem z dzieckiem",
-  "animalsWelcome": "Zwierzęta mile widziane",
-  "yes": "tak",
-  "no": "nie"
+  "location": "Місцезнаходження",
+  "numberOfGuests": "Кількість осіб",
+  "timeframe": "Термін перебування",
+  "oneWeek": "Тиждень",
+  "twoWeeks": "Два тижні",
+  "month": "Місяць",
+  "longerThanMonth": "Довше ніж місяць",
+  "food": "Харчування",
+  "disabledPerson": "Особа з обмеженими можливостями",
+  "kidsBelow2yo": "Я з дитиною",
+  "animalsWelcome": "Тварини дозволені",
+  "yes": "Так",
+  "no": "Ні"
 }

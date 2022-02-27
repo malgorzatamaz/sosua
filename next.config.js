@@ -33,7 +33,7 @@ module.exports = withTM({
     domains: ["placehold.jp"],
   },
   i18n: {
-    locales: ["ua-UA", "pl-PL", "ru-RU"],
-    defaultLocale: "pl-PL",
+    locales: ["ua-UA", "pl-PL", "ru-RU", "en-EN", "cz-CZ", "hu-HU", "sk-SK"],
+    defaultLocale: "en-EN",
   },
 });

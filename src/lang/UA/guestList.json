@@ -1,11 +1,11 @@
 {
-  "arrival": "Przyjazd do Polski",
-  "persons": "Liczba gości",
-  "locationPreference": "Preferowana lokalizacja",
-  "anyLocation": "Dowolna",
-  "travelingWithAnimal": "jest z nami zwierzak",
-  "travelingWithOlderPerson": "jest z nami starsza osoba",
-  "travelingWithDisabledPerson": "jest z nami osoba niepełnosprawna",
-  "travelingWithToddler": "jest z nami dziecko",
-  "inviteGuest": "Przyjmij do siebie"
+  "arrival": "Дата прибуття",
+  "persons": "Кількість гостей",
+  "locationPreference": "Бажане місце",
+  "anyLocation": "Будь яке",
+  "travelingWithAnimal": "з нами домашня тварина",
+  "travelingWithOlderPerson": "з нами особа похилого віку",
+  "travelingWithDisabledPerson": "з нами особа з обмеженими можливостями",
+  "travelingWithToddler": "з нами дитина",
+  "inviteGuest": "Прийняти до себе"
 }
