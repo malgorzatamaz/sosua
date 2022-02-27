@@ -3,6 +3,9 @@ import {
   CompositionContainer,
 } from "../src/components/Compositions";
 import { Text, StyleSheet, View } from "react-native";
+import { getLanguage } from "../src/lang/getLanguages";
+
+const getTranslation = (key) => getLanguage("homepage", key);
 
 export default function App(props) {
   return (
@@ -10,7 +13,7 @@ export default function App(props) {
       <CompositionContainer>
         <View style={styles.comming}>
           <Text style={styles.titleText}>
-            Tu powstaje kompleksowa platforma pomocy dla Ukrainy
+            {getTranslation("placeholderHero")}
           </Text>
         </View>
       </CompositionContainer>

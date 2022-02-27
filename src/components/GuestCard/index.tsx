@@ -2,6 +2,9 @@ import { View, Text } from "react-native";
 import { ButtonCta } from "../Buttons";
 import Avatar from "../Avatar";
 import { styles } from "./style";
+import { getLanguage } from "../../lang/getLanguages";
+
+const getTranslation = (key) => getLanguage("guestList", key);
 
 type GuestCardProps = {
   name: string;
@@ -35,7 +38,7 @@ const GuestCard = ({
           <Avatar
             avatar={avatar}
             title={name}
-            subtitle={`Przyjazd do Polski: ${arrival}`}
+            subtitle={`${getTranslation("arrival")}: ${arrival}`}
             reversedTitle
           />
         </View>
@@ -58,7 +61,9 @@ const GuestCard = ({
                   />
                 </svg>
                 <Text style={styles.headerRightTextContent}>
-                  <strong>+ {numberOfGuests - 1} osoby</strong>
+                  <strong>
+                    + {numberOfGuests - 1} {getTranslation("persons")}
+                  </strong>
                 </Text>
               </View>
               <View style={styles.headerRightText}>
@@ -89,8 +94,10 @@ const GuestCard = ({
           </svg>
 
           <Text style={styles.tagText}>
-            preferowana lokalizacja:{" "}
-            <strong>{preferredPlace || <>Dowolna</>}</strong>
+            {getTranslation("locationPreference")}:{" "}
+            <strong>
+              {preferredPlace || <> {getTranslation("anyLocation")}</>}
+            </strong>
           </Text>
         </View>
         {animals && (
@@ -110,7 +117,8 @@ const GuestCard = ({
               />
             </svg>
             <Text style={styles.tagText}>
-              jest z nami zwierzak: <strong>{animals.join(", ")}</strong>
+              {getTranslation("travelingWithAnimal")}:{" "}
+              <strong>{animals.join(", ")}</strong>
             </Text>
           </View>
         )}
@@ -132,7 +140,9 @@ const GuestCard = ({
             </svg>
 
             <Text style={styles.tagText}>
-              jest ze mną dziecko: <strong>6 miesięcy</strong>
+              {getTranslation("travelingWithToddler")}
+              {": "}
+              <strong>{toddler}</strong>
             </Text>
           </View>
         )}
@@ -154,7 +164,7 @@ const GuestCard = ({
             </svg>
 
             <Text style={styles.tagText}>
-              jest ze mną osoba niepełnosprawna
+              {getTranslation("travelingWithDisabledPerson")}{" "}
             </Text>
           </View>
         )}
@@ -175,12 +185,14 @@ const GuestCard = ({
               />
             </svg>
 
-            <Text style={styles.tagText}>jest ze mną osoba starsza</Text>
+            <Text style={styles.tagText}>
+              {getTranslation("travelingWithOlderPerson")}
+            </Text>
           </View>
         )}
       </View>
       <View style={styles.footer}>
-        <ButtonCta anchor="Przyjmij do siebie" />
+        <ButtonCta anchor={`${getTranslation("inviteGuest")}`} />
       </View>
     </View>
   );

@@ -6,6 +6,8 @@ import {
 import Filters from "../src/components/Filters";
 import Cities from "../src/consts/cities.json";
 import { useState } from "react";
+import { getLanguage } from "../src/lang/getLanguages";
+const getTranslation = (key) => getLanguage("filters", key);
 
 export default function App(props) {
   const [filters, setFilters] = useState({
@@ -14,19 +16,18 @@ export default function App(props) {
     timeframe: null,
     toddler: null,
   });
-  console.log({ filters });
   return (
     <CompositionAppBody>
       <Filters
         filters={[
           {
-            name: "Lokalizacja",
+            name: getTranslation("location"),
             options: Cities.map(({ name }) => ({ value: name, label: name })),
             onSubmit: (e) => setFilters({ ...filters, city: e }),
             value: filters.city,
           },
           {
-            name: "Liczba gości",
+            name: getTranslation("numberOfGuests"),
             options: [
               { value: "1", label: "1" },
               { value: "2", label: "2" },
@@ -39,21 +40,33 @@ export default function App(props) {
             value: filters.guests,
           },
           {
-            name: "Okres",
+            name: getTranslation("timeframe"),
             options: [
-              { value: "tydzień", label: "tydzień" },
-              { value: "2 tygodnie", label: "2 tygodnie" },
-              { value: "miesiąc", label: "miesiąc" },
-              { value: "dłuzej", label: "dłuzej" },
+              {
+                value: getTranslation("oneWeek"),
+                label: getTranslation("oneWeek"),
+              },
+              {
+                value: getTranslation("twoWeeks"),
+                label: getTranslation("twoWeeks"),
+              },
+              {
+                value: getTranslation("month"),
+                label: getTranslation("month"),
+              },
+              {
+                value: getTranslation("longerThanMonth"),
+                label: getTranslation("longerThanMonth"),
+              },
             ],
             onSubmit: (e) => setFilters({ ...filters, timeframe: e }),
             value: filters.timeframe,
           },
           {
-            name: "Jestem z dzieckiem",
+            name: getTranslation("kidsBelow2yo"),
             options: [
-              { value: "tak", label: "tak" },
-              { value: "nie", label: "nie" },
+              { value: getTranslation("yes"), label: getTranslation("yes") },
+              { value: getTranslation("no"), label: getTranslation("no") },
             ],
             onSubmit: (e) => setFilters({ ...filters, toddler: e }),
             value: filters.toddler,

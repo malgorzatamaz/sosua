@@ -2,6 +2,9 @@ import { View, Text } from "react-native";
 import { ButtonCta } from "../Buttons";
 import Avatar from "../Avatar";
 import { styles } from "./style";
+import { getLanguage } from "../../lang/getLanguages";
+
+const getTranslation = (key) => getLanguage("hostList", key);
 
 type OfferBoxProps = {};
 
@@ -47,7 +50,8 @@ const OfferBox = (props: OfferBoxProps) => {
               />
             </svg>
             <Text style={styles.headerRightTextConent}>
-              miejsce dla <strong>3 osób</strong>
+              {getTranslation("placeFor")}{" "}
+              <strong>3 {getTranslation("people")}</strong>
             </Text>
           </View>
           <View style={styles.headerRightText}>
@@ -66,7 +70,8 @@ const OfferBox = (props: OfferBoxProps) => {
               />
             </svg>
             <Text style={styles.headerRightTextConent}>
-              max. <strong>2 tygodnie</strong>
+              {getTranslation("maximum")}
+              <strong>{getTranslation("twoWeeks")}</strong>
             </Text>
           </View>
         </View>
@@ -87,7 +92,7 @@ const OfferBox = (props: OfferBoxProps) => {
               fill="#003566"
             />
           </svg>
-          <Text style={styles.tagText}>wyżywienie</Text>
+          <Text style={styles.tagText}>{getTranslation("food")}</Text>
         </View>
         <View style={styles.tag}>
           <svg
@@ -104,7 +109,7 @@ const OfferBox = (props: OfferBoxProps) => {
               fill="#003566"
             />
           </svg>
-          <Text style={styles.tagText}>zwierzęta mile widziane</Text>
+          <Text style={styles.tagText}>{getTranslation("petsWelcome")}</Text>
         </View>
         <View style={[styles.tag, styles.tagDisable]}>
           <svg
@@ -121,11 +126,11 @@ const OfferBox = (props: OfferBoxProps) => {
               fill="#003566"
             />
           </svg>
-          <Text style={styles.tagText}>udogodnienia dla niepełnosprawnych</Text>
+          <Text style={styles.tagText}>{getTranslation("disabledReady")}</Text>
         </View>
       </View>
       <View style={styles.footer}>
-        <Avatar title="Alina" subtitle="Gospodarz" />
+        <Avatar title="Alina" subtitle={getTranslation("locationOwner")} />
         {/* <ButtonCta anchor="Zadzwoń" /> */}
       </View>
     </View>
