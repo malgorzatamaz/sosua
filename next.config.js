@@ -7,6 +7,10 @@ module.exports = withTM({
     "styled-components/native",
   ],
   webpack: (config) => {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
     return {
       ...config,
       resolve: {
