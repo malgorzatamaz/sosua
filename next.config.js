@@ -1,5 +1,5 @@
 const withTM = require('next-transpile-modules')(['styled-components']);
-// const { i18n } = require('./next-i18next.config');
+const { i18n } = require('./next-i18next.config');
 
 module.exports = withTM({
   transpileModules: [
@@ -33,9 +33,5 @@ module.exports = withTM({
   images: {
     domains: ['placehold.jp'],
   },
-  // i18n,
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'pl'],
-  },
+  i18n,
 });
