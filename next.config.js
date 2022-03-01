@@ -1,10 +1,11 @@
-const withTM = require("next-transpile-modules")(["styled-components"]);
+const withTM = require('next-transpile-modules')(['styled-components']);
+// const { i18n } = require('./next-i18next.config');
 
 module.exports = withTM({
   transpileModules: [
-    "react-native",
-    "styled-components",
-    "styled-components/native",
+    'react-native',
+    'styled-components',
+    'styled-components/native',
   ],
   webpack: (config) => {
     return {
@@ -12,28 +13,29 @@ module.exports = withTM({
       resolve: {
         ...config.resolve,
         extensions: [
-          ".web.ts",
-          ".web.tsx",
-          ".ts",
-          ".tsx",
-          ".web.js",
-          ".web.jsx",
-          ".js",
-          ".jsx",
+          '.web.ts',
+          '.web.tsx',
+          '.ts',
+          '.tsx',
+          '.web.js',
+          '.web.jsx',
+          '.js',
+          '.jsx',
           ...config.resolve.extensions,
         ],
         alias: {
           ...config.resolve.alias,
-          "react-native$": "react-native-web",
+          'react-native$': 'react-native-web',
         },
       },
     };
   },
   images: {
-    domains: ["placehold.jp"],
+    domains: ['placehold.jp'],
   },
+  // i18n,
   i18n: {
-    locales: ["ua-UA", "pl-PL", "ru-RU"],
-    defaultLocale: "pl-PL",
+    defaultLocale: 'en',
+    locales: ['en', 'pl'],
   },
 });

@@ -1,7 +1,7 @@
-import type { LenguageText } from "../../../helpers/lenguageTextSwitcher";
-
 export type ChoiceButtonProps = {
-  text?: LenguageText;
+  // text?: LenguageText;
+  // FIXME:
+  text?: any;
   icon?: React.ReactNode;
   isSmall?: boolean;
   preferenceId?: string;

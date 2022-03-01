@@ -1,8 +1,8 @@
-import type { InputControlProps } from "./types";
-import { InputWraper } from "./style";
+import type { InputControlProps } from './types';
+import { InputWrapper } from './style';
 
 const InputControl = ({ children }: InputControlProps) => {
-  return <InputWraper>{children}</InputWraper>;
+  return <InputWrapper>{children}</InputWrapper>;
 };
 
 export default InputControl;

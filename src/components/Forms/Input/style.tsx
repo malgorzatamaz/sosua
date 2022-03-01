@@ -1,5 +1,5 @@
-import styled from "styled-components/native";
-import { InputProps } from "./types";
+import styled from 'styled-components/native';
+import { InputProps } from './types';
 
 export const InputWraper = styled.View`
   width: 100%;
@@ -20,16 +20,16 @@ export const Label = styled.Text<InputProps>`
   color: ${(props) => (props.error ? `#D8000C` : `rgba(28, 27, 37, 0.5)`)};
 `;
 
-export const TextInput = styled.TextInput`
+export const TextInput = styled.TextInput<any>`
   border: 2px solid
-    ${(props) => (props.error ? `#D8000C` : `rgba(28, 27, 37, 0.3)`)};
+    ${(props: any) => (props.error ? `#D8000C` : `rgba(28, 27, 37, 0.3)`)};
   background-color: transparent;
   padding: 20px;
   border-radius: 4px;
   font-size: 16px;
   width: 100%;
   &:focus {
-    outlinecolor: "#003566";
+    outlinecolor: '#003566';
   }
 `;
 

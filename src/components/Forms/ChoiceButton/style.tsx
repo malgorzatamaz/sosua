@@ -1,5 +1,5 @@
-import type { ChoiceButtonProps } from "./type";
-import styled from "styled-components/native";
+import type { ChoiceButtonProps } from './type';
+import styled from 'styled-components/native';
 
 export const Button = styled.View<ChoiceButtonProps>`
   border: ${(props) =>
@@ -20,7 +20,7 @@ export const Button = styled.View<ChoiceButtonProps>`
 `;
 
 export const Text = styled.Text`
-  color: ${(props) =>
+  color: ${(props: any) =>
     props.isChoice ? `#38B000` : `2px solid rgba(28, 27, 37, 0.7)`};
 `;
 

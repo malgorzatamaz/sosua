@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { devices } from "../../../../project.config";
+import styled from 'styled-components';
+import { devices } from '../../../../project.config';
 
 export const Grid = styled.div<{
   spaceing: [number, number];
@@ -14,7 +14,7 @@ export const Grid = styled.div<{
   margin-left: -${(props) => (props.spaceing ? props.spaceing[0] / 2 : 0)}px;
   margin-right: -${(props) => (props.spaceing ? props.spaceing[0] / 2 : 0)}px;
   margin-bottom: -${(props) => (props.spaceing ? props.spaceing[1] : 0)}px;
-  align-items: ${(props) => (props.alignItems ? props.alignItems : "unset")};
+  align-items: ${(props) => (props.alignItems ? props.alignItems : 'unset')};
   ${(props) =>
     !props.disableRwd
       ? `@media ${devices.tabletWide} {
@@ -22,7 +22,8 @@ export const Grid = styled.div<{
 			margin-left: 0;
 			margin-right: 0;
 			margin-bottom: 0;
-			${(props) => (props.mobileReverse ? "flex-direction: column-reverse;" : "")}
+			${(props: any) =>
+        props.mobileReverse ? 'flex-direction: column-reverse;' : ''}
 		}`
       : null}
   & > div {

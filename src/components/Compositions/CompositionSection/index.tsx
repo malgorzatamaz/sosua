@@ -1,5 +1,5 @@
-import type { SectionProps } from "./types";
-import { PageSection } from "./style";
+import type { SectionProps } from './types';
+import { PageSection } from './style';
 
 const CompositionSection = ({
   children,
@@ -10,7 +10,7 @@ const CompositionSection = ({
 }: SectionProps) => {
   return (
     <PageSection
-      id={sectionId}
+      sectionId={sectionId}
       backgroundColor={backgroundColor}
       zeroPadding={zeroPadding}
       padding={padding}

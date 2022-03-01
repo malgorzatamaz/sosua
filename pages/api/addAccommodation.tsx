@@ -1,6 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next";
-import type { LenguageText } from "../../src/helpers/lenguageTextSwitcher";
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 export type Accommodation = {
   host: {
@@ -19,14 +18,14 @@ export type Accommodations = Array<Accommodation>;
 
 export default function getAccommodations(
   req: NextApiRequest,
-  res: NextApiResponse<Accommodations>
+  res: NextApiResponse<Accommodations>,
 ) {
   const {
     query: { fileKey, token },
   } = req;
 
   // TODO: API Call
-  const accommodations = [];
+  const accommodations: any[] = [];
 
   res.status(200).json(accommodations);
 }

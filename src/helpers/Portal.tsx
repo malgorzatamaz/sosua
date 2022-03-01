@@ -1,5 +1,5 @@
-import { Component } from "react";
-import ReactDOM from "react-dom";
+import { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 export default class Portal extends Component {
   state = {
@@ -9,15 +9,15 @@ export default class Portal extends Component {
 
   componentDidMount() {
     this.setState(
-      { el: document.createElement("div"), target: document.body },
+      { el: document.createElement('div'), target: document.body },
       () => {
-        this.state.target.appendChild(this.state.el);
-      }
+        (this.state.target as any).appendChild(this.state.el);
+      },
     );
   }
 
   componentWillUnmount() {
-    this.state.target && this.state.target.removeChild(this.state.el);
+    (this.state.target as any).removeChild(this.state.el);
   }
 
   render() {

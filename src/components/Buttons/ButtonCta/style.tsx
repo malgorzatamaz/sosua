@@ -1,7 +1,7 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native';
 
 export const Button = styled.View`
-	background-color: ${(props) => props.theme.colors.cta};
+	background-color: ${(props: any) => props.theme.colors.cta};
 	border-radius: 50px;
 	padding: 12px 25px,
 	width: fit-content;
@@ -13,5 +13,5 @@ export const Button = styled.View`
 `;
 
 export const ButtonAnchor = styled.Text`
-  color: ${(props) => props.theme.colors.textOnCta};
+  color: ${(props: any) => props.theme.colors.textOnCta};
 `;

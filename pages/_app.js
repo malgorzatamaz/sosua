@@ -1,14 +1,15 @@
-import * as React from "react";
-import Head from "next/head";
-import { ThemeProvider } from "styled-components/native";
-import { primary, secendary } from "../src/style/theme.config";
-import { SessionProvider } from "next-auth/react";
+import { ThemeProvider } from 'styled-components/native';
+import { primary } from '../src/style/theme.config';
+import { SessionProvider } from 'next-auth/react';
+import { appWithTranslation } from 'next-i18next';
+import * as React from 'react';
+import Head from 'next/head';
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+function sosUA({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <SessionProvider session={session}>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
       <ThemeProvider theme={primary}>
         <Component {...pageProps} />
@@ -17,4 +18,4 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(sosUA);
