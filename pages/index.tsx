@@ -6,17 +6,24 @@ import {
 import Filters from "../src/components/Filters";
 import Cities from "../src/consts/cities.json";
 import { useState } from "react";
-import useFetch from "react-fetch-hook";
+import { getQueryClient } from "../lib/react-query";
+import {
+  AccomodationsData,
+  prefetchAccomodationsApi,
+} from "../src/features/accomodations/api/get";
+import { GetStaticPropsContext } from "next";
+import { dehydrate } from "react-query";
+type Props = {
+  data: AccomodationsData | undefined;
+};
 
-function Home(props) {
+function Home({ data }: Props) {
   const [filters, setFilters] = useState({
     city: null,
     guests: null,
     timeframe: null,
     toddler: null,
   });
-
-  const { data } = props;
 
   return (
     <CompositionAppBody>
@@ -65,7 +72,7 @@ function Home(props) {
       />
       <CompositionContainer>
         <>
-          {data.map((accommodation) => {
+          {data?.map((accommodation) => {
             return <OfferBox {...accommodation} />;
           })}
         </>
@@ -74,13 +81,13 @@ function Home(props) {
   );
 }
 
-export async function getStaticProps() {
-  const res = await fetch("http://localhost:3000/api/accommodations");
-  const data = await res.json();
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const queryClient = getQueryClient();
+  await prefetchAccomodationsApi(queryClient, context.locale);
 
   return {
     props: {
-      data,
+      dehydratedState: dehydrate(queryClient),
     },
   };
 }

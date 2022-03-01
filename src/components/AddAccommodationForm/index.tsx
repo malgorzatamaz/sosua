@@ -21,6 +21,7 @@ import { ButtonCta } from "../Buttons";
 import { useForm, Controller } from "react-hook-form";
 import { useState, useEffect } from "react";
 import type { LenguageText } from "../../helpers/lenguageTextSwitcher";
+import { useAddAccomodationsMutation } from "../../features/accomodations/api/post";
 
 // TODO: all file to revalidaete !!!!
 
@@ -158,6 +159,8 @@ const AddAccommodationForm = ({}: AddAccommodationFormProps) => {
       howMenyPeople: "",
     },
   });
+  const { mutate: addAccomodations } = useAddAccomodationsMutation();
+
   const onSubmit = (data) => {
     const preferencesApiArray = [];
     for (const [key, value] of Object.entries(preferences)) {
@@ -196,9 +199,8 @@ const AddAccommodationForm = ({}: AddAccommodationFormProps) => {
       }
     }
 
-    fetch("/api/accommodations/add", {
-      method: "post",
-      body: JSON.stringify({
+    addAccomodations({
+      data: {
         host: {
           name: data.name,
           email: data.email,
@@ -210,11 +212,7 @@ const AddAccommodationForm = ({}: AddAccommodationFormProps) => {
         conditions: [...conditionsApiArray, ...floorApiArray],
         preferences: preferencesApiArray,
         resources: [...howMenyPeopleApiArray],
-      }),
-    }).then((res) => {
-      if (res.status === 200) {
-      } else {
-      }
+      },
     });
   };
 
